@@ -79,11 +79,7 @@ body {
   font-family: 'Manrope', sans-serif;
   padding: 24px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 10px;
+  min-height: 100vh;
 }
 
 header {
@@ -149,7 +145,6 @@ main {
   height: 40px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 #pageview-slider {
@@ -231,6 +226,9 @@ footer {
   font-size: 0.625rem;
   text-align: center;
   height: 1rem;
+  position: absolute;
+  bottom: 0;
+  width:calc(100% - 48px);
 }
 
 footer a {

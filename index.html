@@ -33,19 +33,19 @@
   <main>
     <div class="card top">
       <p class="pageviews">
-        <span class="pageviews-number">100K</span> PAGEVIEWS
+        <span class="pageviews-number"></span> PAGEVIEWS
       </p>
       <div class="slider-container">
         <input type="range" min="1" max="5" value="3" class="slider" id="pageview-slider">
       </div>
       <p class="price-per-month">
-        <span class="price">$16.00</span>
-        <span class="per-month"> / month </span>
+        <span class="price"></span>
+        <span class="time-period"></span>
       </p>
       <div class="billing-row">
         <div>Monthly Billing</div>
-        <label class="switch">
-          <input type="checkbox">
+        <label class="switch" for="billing-checkbox">
+          <input type="checkbox" id="billing-checkbox" onclick="changeBilling()">
           <span class="slider-round"></span>
         </label>
         <div>Yearly Billing</div>

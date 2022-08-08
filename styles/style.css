@@ -206,7 +206,7 @@ main {
   color: var(--color-neutral-dark-desaturated-blue);
 }
 
-.per-month {
+.time-period {
   color: var(--color-neutral-grayish-blue);
   font-size: 0.875rem;
   font-weight: 600;

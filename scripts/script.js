@@ -3,31 +3,13 @@ const pageviewNumber = document.querySelector(".pageviews-number")
 const checkbox = document.querySelector("#billing-checkbox");
 const price = document.querySelector(".price");
 const timePeriod = document.querySelector(".time-period");
-let basicPrice = checkPrice(pageviewSlider.value);
+const priceList = [8, 12, 16, 24, 36];
+const pageviewList = ["10K", "50K", "100K", "500K", "1M"]
+let basicPrice = priceList[parseInt(pageviewSlider.value)];
 let isMonthlyBilling = !checkbox.checked;
 
-function checkPrice(sliderValue) {
-  switch (sliderValue) {
-    case "1":
-      return 8;
-      break;
-    case "2":
-      return 12;
-      break;
-    case "3":
-      return 16;
-      break;
-    case "4":
-      return 24;
-      break;
-    case "5":
-      return 36;
-      break;
-  }
-}
-
 function displaySliderBackground(sliderValue) {
-  let transitionPoint = (parseInt(sliderValue) - 1) * 25;
+  let transitionPoint = parseInt(sliderValue) * 25;
   pageviewSlider.style["background"] = `linear-gradient(90deg, var(--color-primary-soft-cyan) ${transitionPoint}%, var(--color-neutral-light-grayish-blue-1) ${transitionPoint}%)`;
 }
 
@@ -53,31 +35,10 @@ displayFinalPrice(basicPrice, isMonthlyBilling);
 displaySliderBackground(pageviewSlider.value);
 
 pageviewSlider.oninput = function () {
-  basicPrice = checkPrice(this.value);
+  basicPrice = priceList[parseInt(this.value)];
   displayFinalPrice(basicPrice, isMonthlyBilling);
   displaySliderBackground(this.value);
-  switch (this.value) {
-    case "1":
-      pageviewNumber.textContent = "10K";
-      // pageviewSlider.style["background"] = "var(--color-neutral-light-grayish-blue-1)";
-      break;
-    case "2":
-      pageviewNumber.textContent = "50K";
-      // pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 25%, var(--color-neutral-light-grayish-blue-1) 25%)";
-      break;
-    case "3":
-      pageviewNumber.textContent = "100K";
-      // pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 50%, var(--color-neutral-light-grayish-blue-1) 50%)";
-      break;
-    case "4":
-      pageviewNumber.textContent = "500K";
-      // pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 75%, var(--color-neutral-light-grayish-blue-1) 75%)";
-      break;
-    case "5":
-      pageviewNumber.textContent = "1M";
-      // pageviewSlider.style["background"] = "var(--color-primary-soft-cyan)";
-      break;
-  }
+  pageviewNumber.textContent = pageviewList[this.value];
 }
 
 

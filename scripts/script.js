@@ -25,6 +25,12 @@ function checkPrice(sliderValue) {
       break;
   }
 }
+
+function displaySliderBackground(sliderValue) {
+  let transitionPoint = (parseInt(sliderValue) - 1) * 25;
+  pageviewSlider.style["background"] = `linear-gradient(90deg, var(--color-primary-soft-cyan) ${transitionPoint}%, var(--color-neutral-light-grayish-blue-1) ${transitionPoint}%)`;
+}
+
 function changeBilling() {
   isMonthlyBilling = (checkbox.checked) ? false : true;
   displayFinalPrice(basicPrice, isMonthlyBilling);
@@ -44,31 +50,32 @@ function displayFinalPrice(basicPrice, isMonthlyBilling) {
 }
 
 displayFinalPrice(basicPrice, isMonthlyBilling);
-
+displaySliderBackground(pageviewSlider.value);
 
 pageviewSlider.oninput = function () {
   basicPrice = checkPrice(this.value);
   displayFinalPrice(basicPrice, isMonthlyBilling);
+  displaySliderBackground(this.value);
   switch (this.value) {
     case "1":
       pageviewNumber.textContent = "10K";
-      pageviewSlider.style["background"] = "var(--color-neutral-light-grayish-blue-1)";
+      // pageviewSlider.style["background"] = "var(--color-neutral-light-grayish-blue-1)";
       break;
     case "2":
       pageviewNumber.textContent = "50K";
-      pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 25%, var(--color-neutral-light-grayish-blue-1) 25%)";
+      // pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 25%, var(--color-neutral-light-grayish-blue-1) 25%)";
       break;
     case "3":
       pageviewNumber.textContent = "100K";
-      pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 50%, var(--color-neutral-light-grayish-blue-1) 50%)";
+      // pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 50%, var(--color-neutral-light-grayish-blue-1) 50%)";
       break;
     case "4":
       pageviewNumber.textContent = "500K";
-      pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 75%, var(--color-neutral-light-grayish-blue-1) 75%)";
+      // pageviewSlider.style["background"] = "linear-gradient(90deg, var(--color-primary-soft-cyan) 75%, var(--color-neutral-light-grayish-blue-1) 75%)";
       break;
     case "5":
       pageviewNumber.textContent = "1M";
-      pageviewSlider.style["background"] = "var(--color-primary-soft-cyan)";
+      // pageviewSlider.style["background"] = "var(--color-primary-soft-cyan)";
       break;
   }
 }

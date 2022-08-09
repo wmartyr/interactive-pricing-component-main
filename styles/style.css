@@ -61,8 +61,9 @@ button {
 }
 
 :root {
-  --color-primary-soft-cyan: hsl(174, 77%, 80%);
-  --color-primary-strong-cyan: hsl(174, 86%, 45%);
+  --color-primary-softer-cyan: hsl(174, 77%, 80%);
+  --color-primary-soft-cyan: hsl(174, 77%, 65%);
+  --color-primary-strong-cyan: hsl(174, 86%, 35%);
   --color-primary-light-grayish-red: hsl(14, 92%, 95%);
   --color-primary-light-red: hsl(15, 100%, 70%);
   --color-primary-pale-blue: hsl(226, 100%, 87%);
@@ -91,6 +92,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 327px;
 }
 
 h1 {
@@ -122,6 +124,7 @@ main {
   align-items: stretch;
   padding: 20px;
   gap: 20px;
+  min-width: 327px;
 }
 
 .top {
@@ -174,7 +177,7 @@ main {
   background-size: 20px;
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 10px 20px 7px var(--color-primary-soft-cyan);
+  box-shadow: 0 10px 20px 7px var(--color-primary-softer-cyan);
 }
 
 #pageview-slider::-moz-range-thumb {
@@ -188,7 +191,16 @@ main {
   background-size: 20px;
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 10px 20px 7px var(--color-primary-soft-cyan);
+  box-shadow: 0 10px 20px 7px var(--color-primary-softer-cyan);
+}
+
+
+#pageview-slider::-moz-range-thumb:hover {
+  background-color: var(--color-primary-soft-cyan);
+}
+
+#pageview-slider:active::-moz-range-thumb {
+  background-color: var(--color-primary-strong-cyan);
 }
 
 .price-per-month {
@@ -279,7 +291,7 @@ main {
   background-color: var(--color-primary-soft-cyan);
 }
 
-input:checked + .slider-round:before {
+input:checked+.slider-round:before {
   -webkit-transform: translateX(23px);
   -ms-transform: translateX(23px);
   transform: translateX(23px);
@@ -289,7 +301,7 @@ input:checked + .slider-round:before {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px   ;
+  gap: 10px;
 }
 
 .feature-text {
@@ -306,7 +318,7 @@ input:checked + .slider-round:before {
   gap: 10px;
 }
 
-.feature-line > img {
+.feature-line>img {
   width: 10px;
   height: 10px;
 }
@@ -331,15 +343,41 @@ button {
   border-radius: 188px;
 }
 
+button:hover {
+  color: white;
+}
+
 footer {
   font-size: 0.625rem;
   text-align: center;
   height: 1rem;
   position: absolute;
   bottom: 0;
-  width:calc(100% - 48px);
+  min-width: 327px;
+  width: calc(100% - 48px);
 }
 
 footer a {
   color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width: 376px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header {
+    width: 500px;
+  }
+
+  .card {
+    width: 500px;
+  }
+
+  footer {
+    width: 500px;
+  }
 }

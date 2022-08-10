@@ -116,7 +116,7 @@ main {
   filter: drop-shadow(0 0 10px var(--color-neutral-light-grayish-blue-2));
 }
 
-.card {
+/* .card {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -124,6 +124,17 @@ main {
   align-items: stretch;
   padding: 20px;
   gap: 20px;
+  min-width: 327px;
+} */
+
+.card {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 40px 1fr 50px 1fr 40px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  row-gap: 10px;
+  padding: 20px;
   min-width: 327px;
 }
 
@@ -136,6 +147,8 @@ main {
 }
 
 .pageviews {
+  grid-column: 1 / span 5;
+  grid-row: 1 / 2;
   color: var(--color-neutral-grayish-blue);
   font-size: 0.75rem;
   font-weight: 800;
@@ -143,11 +156,17 @@ main {
   text-align: center;
 }
 
+/* .pageviews-price-line {
+  display: none;
+} */
+
 .slider-container {
+  grid-column: 1 / span 5;
+  /* grid-row: 2 / 3; */
   width: 100%;
   height: 40px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 #pageview-slider {
@@ -204,6 +223,8 @@ main {
 }
 
 .price-per-month {
+  grid-column: 1 / span 5;
+  grid-row: 3 / 4;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -224,35 +245,34 @@ main {
   font-weight: 600;
 }
 
-.billing-row {
-  display: flex;
+.billing {
+  /* display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: 5px;
+  gap: 5px; */
   font-size: 0.688rem;
   color: var(--color-neutral-grayish-blue);
   font-weight: 600;
 }
 
-.discount {
-  background-color: var(--color-primary-light-grayish-red);
-  color: var(--color-primary-light-red);
-  width: 40px;
-  padding-bottom: 1px;
-  border-radius: 16px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.monthly {
+  grid-column: 1 / span 2;
+  grid-row: 4 / 5;
+  justify-self: end;
+  margin-right: 7px;
 }
 
 .switch {
   position: relative;
   display: inline-block;
+  left: 1px;
+  grid-column: 3 / 4;
+  grid-row: 4 / 5;
   width: 45px;
   height: 22px;
-  margin: 0 5px;
+  /* margin: auto; */
+  /* margin: 0 10px; */
 }
 
 .switch input {
@@ -295,6 +315,28 @@ input:checked+.slider-round:before {
   -webkit-transform: translateX(23px);
   -ms-transform: translateX(23px);
   transform: translateX(23px);
+}
+
+.yearly {
+  grid-column: 4 / 5;
+  /* grid-row: 4 / 5; */
+  justify-self: start;
+  margin-left: 7px;
+}
+
+.discount {
+  background-color: var(--color-primary-light-grayish-red);
+  color: var(--color-primary-light-red);
+  font-size: 0.625rem;
+  font-weight: 800;
+  width: 40px;
+  height: 16px;
+  padding-bottom: 1px;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .features {
@@ -375,6 +417,17 @@ footer a {
 
   .card {
     width: 500px;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .pageviews-price-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   footer {

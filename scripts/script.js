@@ -1,6 +1,6 @@
 const pageviewSlider = document.querySelector("#pageview-slider");
 const pageviewNumber = document.querySelector(".pageviews-number");
-const pageviewNumberDesktop = document.querySelector(".pageviews-number-desktop");
+// const pageviewNumberDesktop = document.querySelector(".pageviews-number-desktop");
 const checkbox = document.querySelector("#billing-checkbox");
 const price = document.querySelector(".price");
 const timePeriod = document.querySelector(".time-period");
@@ -34,13 +34,15 @@ function displayFinalPrice(basicPrice, isMonthlyBilling) {
 
 displayFinalPrice(basicPrice, isMonthlyBilling);
 displaySliderBackground(pageviewSlider.value);
+pageviewNumber.textContent = pageviewList[pageviewSlider.value];
+
 
 pageviewSlider.oninput = function () {
   basicPrice = priceList[parseInt(this.value)];
   displayFinalPrice(basicPrice, isMonthlyBilling);
   displaySliderBackground(this.value);
   pageviewNumber.textContent = pageviewList[this.value];
-  pageviewNumberDesktop.textContent = pageviewList[this.value];
+  // pageviewNumberDesktop.textContent = pageviewList[this.value];
 }
 
 

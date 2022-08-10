@@ -75,8 +75,13 @@ button {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   background-image: url("../images/bg-pattern.svg");
   background-repeat: no-repeat;
+  background-size: 100% 50%;
   font-family: 'Manrope', sans-serif;
   padding: 24px;
   position: relative;
@@ -378,13 +383,6 @@ footer a {
 }
 
 @media only screen and (min-width: 376px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   header {
     width: 500px;
   }
